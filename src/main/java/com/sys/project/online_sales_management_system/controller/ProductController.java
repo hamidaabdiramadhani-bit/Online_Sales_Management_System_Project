@@ -11,8 +11,10 @@ import java.util.List;
 @RequestMapping("/api/products")
 public class ProductController {
 
+
     @Autowired
     private ProductService productService;
+
 
     
     @GetMapping
@@ -20,28 +22,37 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+
     
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
     }
 
+
     
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
+    public Product createProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
 
+
     
     @PutMapping("/{id}")
-    public Product updateProduct(@PathVariable Long id,
-                                 @RequestBody Product product) {
+    public Product updateProduct(
+            @PathVariable Long id,
+            @RequestBody Product product) {
+
         return productService.updateProduct(id, product);
     }
 
+
     
     @DeleteMapping("/{id}")
-    public void deleteProduct(@PathVariable Long id) {
+    public String deleteProduct(@PathVariable Long id) {
+
         productService.deleteProduct(id);
+
+        return "Product deleted successfully";
     }
 }

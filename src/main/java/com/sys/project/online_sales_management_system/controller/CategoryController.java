@@ -1,5 +1,6 @@
 package com.sys.project.online_sales_management_system.controller;
 
+import jakarta.validation.Valid;
 import com.sys.project.online_sales_management_system.entity.Category;
 import com.sys.project.online_sales_management_system.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,10 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @PostMapping
-    public Category addCategory(@RequestBody Category category) {
-        return categoryService.saveCategory(category);
-    }
+    
+
+@PostMapping
+public Category addCategory(@Valid @RequestBody Category category) {
+    return categoryService.saveCategory(category);
+}
 }

@@ -1,5 +1,7 @@
 package com.sys.project.online_sales_management_system.controller;
 
+import jakarta.validation.Valid;
+import com.sys.project.online_sales_management_system.dto.CreateOrderRequest;
 import com.sys.project.online_sales_management_system.entity.CustomerOrder;
 import com.sys.project.online_sales_management_system.service.CustomerOrderService;
 
@@ -22,9 +24,14 @@ public class CustomerOrderController {
         return customerOrderService.getAllOrders();
     }
 
+    @GetMapping("/{id}")
+public CustomerOrder getOrderById(@PathVariable Long id) {
+    return customerOrderService.getOrderById(id);
+}
+
 
     @PostMapping
-    public CustomerOrder addOrder(@RequestBody CustomerOrder order) {
-        return customerOrderService.saveOrder(order);
-    }
+public CustomerOrder createOrder(@Valid @RequestBody CreateOrderRequest request) {
+    return customerOrderService.createOrder(request);
+}
 }

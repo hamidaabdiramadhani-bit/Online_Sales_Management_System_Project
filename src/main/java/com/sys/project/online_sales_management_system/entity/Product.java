@@ -1,5 +1,9 @@
 package com.sys.project.online_sales_management_system.entity;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,31 +14,37 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    @NotBlank(message = "Product name is required")
+@Column(nullable = false)
+private String name;
 
     private String description;
 
-    @Column(nullable = false)
-    private Double price;
+   @NotNull(message = "Price is required")
+@Positive(message = "Price must be greater than zero")
+@Column(nullable = false)
+private Double price;
 
-    @Column(nullable = false)
-    private Integer quantity;
+@NotNull(message = "Quantity is required")
+@Min(value = 0, message = "Quantity cannot be negative")
+@Column(nullable = false)
+private Integer quantity;
 
-    @ManyToOne
-@JoinColumn(name = "category_id")
+@ManyToOne
+@JoinColumn(name = "category_id", nullable = false)
 private Category category;
 
     public Product() {
     }
 
-    public Product(Long id, String name, String description, Double price, Integer quantity) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.quantity = quantity;
-    }
+    public Product(Long id, String name, String description, Double price, Integer quantity, Category category) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.quantity = quantity;
+    this.category = category;
+}
 
     public Long getId() {
         return id;

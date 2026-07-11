@@ -1,5 +1,6 @@
 package com.sys.project.online_sales_management_system.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,9 +21,10 @@ public class OrderItem {
     private Double unitPrice;
 
 
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private CustomerOrder order;
+    @JsonBackReference
+@ManyToOne
+@JoinColumn(name = "order_id", nullable = false)
+private CustomerOrder order;
 
 
     @ManyToOne

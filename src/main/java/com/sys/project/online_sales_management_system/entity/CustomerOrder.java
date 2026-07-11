@@ -1,5 +1,9 @@
 package com.sys.project.online_sales_management_system.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -16,21 +20,28 @@ public class CustomerOrder {
     @Column(nullable = false)
     private LocalDateTime orderDate;
 
+    @Column(nullable = false)
+private Double totalAmount;
+
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @JsonManagedReference
+@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+private List<OrderItem> items = new ArrayList<>();
 
     public CustomerOrder() {
     }
 
 
-    public CustomerOrder(Long id, LocalDateTime orderDate, Customer customer) {
-        this.id = id;
-        this.orderDate = orderDate;
-        this.customer = customer;
-    }
+     public CustomerOrder(Long id, LocalDateTime orderDate, Double totalAmount, Customer customer) {
+    this.id = id;
+    this.orderDate = orderDate;
+    this.totalAmount = totalAmount;
+    this.customer = customer;
+}
 
 
     public Long getId() {
@@ -53,6 +64,16 @@ public class CustomerOrder {
     }
 
 
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+
     public Customer getCustomer() {
         return customer;
     }
@@ -61,4 +82,13 @@ public class CustomerOrder {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+     public List<OrderItem> getItems() {
+    return items;
+}
+
+public void setItems(List<OrderItem> items) {
+    this.items = items;
+}
+
 }

@@ -10,42 +10,51 @@ import java.util.List;
 @Service
 public class ProductService {
 
+
     @Autowired
     private ProductRepository productRepository;
+
 
     
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
+
     
     public Product saveProduct(Product product) {
         return productRepository.save(product);
     }
 
+
     
     public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
     }
+
 
     
     public Product updateProduct(Long id, Product product) {
-        Product existingProduct = productRepository.findById(id).orElse(null);
 
-        if (existingProduct != null) {
-            existingProduct.setName(product.getName());
-            existingProduct.setDescription(product.getDescription());
-            existingProduct.setPrice(product.getPrice());
-            existingProduct.setQuantity(product.getQuantity());
+        Product existingProduct = getProductById(id);
 
-            return productRepository.save(existingProduct);
-        }
+        existingProduct.setName(product.getName());
+        existingProduct.setDescription(product.getDescription());
+        existingProduct.setPrice(product.getPrice());
+        existingProduct.setQuantity(product.getQuantity());
+        existingProduct.setCategory(product.getCategory());
 
-        return null;
+        return productRepository.save(existingProduct);
     }
+
 
     
     public void deleteProduct(Long id) {
-        productRepository.deleteById(id);
+
+        Product product = getProductById(id);
+
+        productRepository.delete(product);
     }
 }
