@@ -55,7 +55,7 @@ public SecurityFilterChain securityFilterChain(
             )
             .authorizeHttpRequests(auth -> auth
 
-        .requestMatchers("/api/auth/login").permitAll()
+        .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
 
         
         .requestMatchers(HttpMethod.GET, "/api/customers/**")
