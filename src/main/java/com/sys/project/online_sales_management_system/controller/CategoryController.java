@@ -20,10 +20,21 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    
+    @PostMapping
+    public Category addCategory(@Valid @RequestBody Category category) {
+        return categoryService.saveCategory(category);
+    }
 
-@PostMapping
-public Category addCategory(@Valid @RequestBody Category category) {
-    return categoryService.saveCategory(category);
-}
+    @PutMapping("/{id}")
+    public Category updateCategory(
+            @PathVariable Long id,
+            @Valid @RequestBody Category category) {
+        return categoryService.updateCategory(id, category);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteCategory(@PathVariable Long id) {
+        categoryService.deleteCategory(id);
+        return "Category deleted successfully.";
+    }
 }
