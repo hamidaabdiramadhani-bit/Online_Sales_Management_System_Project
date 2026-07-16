@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -49,36 +50,34 @@ public SecurityFilterChain securityFilterChain(
 ) throws Exception {
 
     http
+            .cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session ->
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
 
+        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
         .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
 
-        
         .requestMatchers(HttpMethod.GET, "/api/customers/**")
         .hasAnyRole("ADMIN", "USER")
 
         .requestMatchers("/api/customers/**")
         .hasRole("ADMIN")
 
-    
         .requestMatchers(HttpMethod.GET, "/api/products/**")
         .hasAnyRole("ADMIN", "USER")
 
         .requestMatchers("/api/products/**")
         .hasRole("ADMIN")
 
-        
         .requestMatchers(HttpMethod.GET, "/api/categories/**")
         .hasAnyRole("ADMIN", "USER")
 
         .requestMatchers("/api/categories/**")
         .hasRole("ADMIN")
 
-        
         .requestMatchers("/api/orders/**")
         .authenticated()
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categories</title>
+
+    <link rel="stylesheet" href="css/admin-categories.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h2>Categories</h2>
+
+        <nav>
+
+            <a href="admin-dashboard.html">Dashboard</a>
+
+            <a href="admin-products.html">Products</a>
+
+            <a href="admin-categories.html">Categories</a>
+
+            <a href="admin-customers.html">Customers</a>
+
+            <a href="admin-orders.html">Orders</a>
+
+        </nav>
+
+    </header>
+
+    <section>
+
+        <h2>Add Category</h2>
+
+        <form id="categoryForm">
+
+            <input type="text" id="categoryName" placeholder="Category Name" required>
+
+            <button>
+
+                Save
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <section>
+
+        <h2>Category List</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Name</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="categoryTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <script src="js/auth.js"></script>
+    <script src="js/config.js"></script>
+
+    <script src="js/admin-categories.js"></script>
+
+</body>
+
+</html>

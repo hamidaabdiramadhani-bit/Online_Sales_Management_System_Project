@@ -42,9 +42,12 @@ private final PasswordEncoder passwordEncoder;
                 )
         );
 
-        String token = jwtService.generateToken(request.getUsername());
+        User user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return new LoginResponse(token);
+        String token = jwtService.generateToken(request.getUsername(), user.getRole());
+
+        return new LoginResponse(token, user.getRole());
     }
 
     @PostMapping("/register")

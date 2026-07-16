@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Online Sales Management System</title>
+
+    <link rel="stylesheet" href="css/dashboard.css?v=2">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav>
+
+            <h2 class="logo">Online Sales System</h2>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="products.html">Products</a></li>
+
+                <li><a href="cart.html">Cart</a></li>
+
+                <li><a href="checkout.html">Checkout</a></li>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= WELCOME ================= -->
+
+    <section class="welcome">
+
+        <h1>Customer Dashboard</h1>
+
+        <p>
+
+            Welcome to the Online Sales Management System.
+
+        </p>
+
+    </section>
+
+    <!-- ================= DASHBOARD CARDS ================= -->
+
+    <section class="dashboard">
+
+        <div class="card">
+
+            <h2>Total Products</h2>
+
+            <h1 id="total-products">0</h1>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Items in Cart</h2>
+
+            <h1 id="cart-items">0</h1>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Total Orders</h2>
+
+            <h1 id="total-orders">0</h1>
+
+        </div>
+
+    </section>
+
+    <!-- ================= QUICK ACTIONS ==== -->
+
+    <section class="actions">
+
+        <h2>Quick Actions</h2>
+
+        <div class="buttons">
+
+            <a href="products.html">
+
+                <button>
+
+                    View Products
+
+                </button>
+
+            </a>
+
+            <a href="cart.html">
+
+                <button>
+
+                    My Cart
+
+                </button>
+
+            </a>
+
+            <a href="checkout.html">
+
+                <button>
+
+                    Checkout
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= RECENT PRODUCTS ================= -->
+
+    <section class="recent-products">
+
+        <h2>Available Products</h2>
+
+        <div id="product-list">
+
+            <!-- Products loaded by dashboard.js -->
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            &copy; 2026 Online Sales Management System
+
+        </p>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/auth.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

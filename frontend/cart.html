@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | Online Sales Management System</title>
+
+    <link rel="stylesheet" href="css/cart.css">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav>
+
+            <h2 class="logo">Online Sales System</h2>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="products.html">Products</a></li>
+
+                <li><a href="cart.html">Cart</a></li>
+
+                <li><a href="checkout.html">Checkout</a></li>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= PAGE TITLE ================= -->
+
+    <div class="title">
+
+        <h1>My Shopping Cart</h1>
+
+    </div>
+
+    <!-- ================= CART ================= -->
+
+    <section class="cart-container">
+
+        <!-- Left -->
+
+        <div class="cart-items">
+
+            <table class="cart-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Product</th>
+
+                        <th>Price</th>
+
+                        <th>Quantity</th>
+
+                        <th>Total</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="cart-body">
+
+                    <!-- cart.js loads items here -->
+
+                </tbody>
+
+            </table>
+
+            <div id="empty-cart" class="empty-cart" style="display:none;">
+
+                <h2>Your Cart is Empty</h2>
+
+                <p>
+
+                    No products have been added yet.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="cart-summary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+
+                <span>Subtotal</span>
+
+                <span id="subtotal">
+
+                    TZS 0.00
+
+                </span>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Tax (18%)</span>
+
+                <span id="tax">
+
+                    TZS 0.00
+
+                </span>
+
+            </div>
+
+            <div class="summary-row total">
+
+                <span>Total</span>
+
+                <span id="total">
+
+                    TZS 0.00
+
+                </span>
+
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">
+
+                Proceed to Checkout
+
+            </button>
+
+            <button class="continue-btn" onclick="continueShopping()">
+
+                Continue Shopping
+
+            </button>
+
+            <button class="continue-btn" onclick="clearCart()">
+
+                Clear Cart
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026 Online Sales Management System
+
+        </p>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/config.js"></script>
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>

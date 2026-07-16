@@ -1,0 +1,193 @@
+/* ===========================
+   admin-products.css
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+/* Header */
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 40px;
+}
+
+header h2 {
+    margin-bottom: 10px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: #34495e;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #3498db;
+}
+
+/* Form */
+
+section {
+    width: 90%;
+    margin: 30px auto;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+textarea {
+    resize: none;
+    height: 90px;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+table th {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+table tr:hover {
+    background: #f5f5f5;
+}
+
+/* Action Buttons */
+
+.edit-btn {
+
+    background: #27ae60;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 15px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    margin-right: 5px;
+
+}
+
+.edit-btn:hover {
+
+    background: #219150;
+
+}
+
+.delete-btn {
+
+    background: #e74c3c;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 15px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+.delete-btn:hover {
+
+    background: #c0392b;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    header {
+
+        text-align: center;
+
+    }
+
+    nav {
+
+        flex-direction: column;
+
+    }
+
+    table {
+
+        display: block;
+
+        overflow-x: auto;
+
+    }
+
+}

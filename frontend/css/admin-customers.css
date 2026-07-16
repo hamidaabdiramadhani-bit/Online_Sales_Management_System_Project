@@ -1,0 +1,164 @@
+/* ===========================
+   admin-customers.css
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+/* Header */
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 40px;
+}
+
+header h2 {
+    margin-bottom: 10px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: #34495e;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #3498db;
+}
+
+/* Main Section */
+
+section {
+    width: 90%;
+    margin: 30px auto;
+}
+
+section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Search Box */
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table th {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+}
+
+table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+    background: #f8f8f8;
+}
+
+/* Buttons */
+
+.edit-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background: #1e8449;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 40px;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    header {
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+}

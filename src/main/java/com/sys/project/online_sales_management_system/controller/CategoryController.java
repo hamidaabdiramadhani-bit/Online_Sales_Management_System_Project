@@ -15,26 +15,21 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    // ==========================
+    // Get All Categories
+    // ==========================
+
     @GetMapping
     public List<Category> getAllCategories() {
+
         return categoryService.getAllCategories();
+
     }
 
-    @PostMapping
-    public Category addCategory(@Valid @RequestBody Category category) {
-        return categoryService.saveCategory(category);
-    }
+    
 
-    @PutMapping("/{id}")
-    public Category updateCategory(
-            @PathVariable Long id,
-            @Valid @RequestBody Category category) {
-        return categoryService.updateCategory(id, category);
-    }
-
-    @DeleteMapping("/{id}")
-    public String deleteCategory(@PathVariable Long id) {
-        categoryService.deleteCategory(id);
-        return "Category deleted successfully.";
-    }
+@PostMapping
+public Category addCategory(@Valid @RequestBody Category category) {
+    return categoryService.saveCategory(category);
+}
 }
