@@ -89,4 +89,55 @@ customerOrderRepository.save(savedOrder);
 return savedOrder;
 
     }
+
+@Transactional
+public void deleteOrder(Long id) {
+
+    CustomerOrder order = customerOrderRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Order not found"));
+
+    for (OrderItem item : order.getItems()) {
+        Product product = item.getProduct();
+        product.setQuantity(product.getQuantity() + item.getQuantity());
+        productRepository.save(product);
+    }
+
+    customerOrderRepository.delete(order);
+}
+
+@Transactional
+public CustomerOrder updateOrder(Long id, CreateOrderRequest request) {
+
+    CustomerOrder existingOrder = customerOrderRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Order not found"));
+
+    Customer customer = customerRepository.findById(request.getCustomerId())
+            .orElseThrow(() -> new RuntimeException("Customer not found"));
+
+    Product product = productRepository.findById(request.getProductId())
+            .orElseThrow(() -> new RuntimeException("Product not found"));
+
+
+    existingOrder.setCustomer(customer);
+
+    existingOrder.getItems().clear();
+
+    OrderItem orderItem = new OrderItem();
+
+    orderItem.setProduct(product);
+    orderItem.setQuantity(request.getQuantity());
+    orderItem.setUnitPrice(product.getPrice());
+    orderItem.setOrder(existingOrder);
+
+
+    existingOrder.getItems().add(orderItem);
+
+
+    Double total = product.getPrice() * request.getQuantity();
+    existingOrder.setTotalAmount(total);
+
+
+    return customerOrderRepository.save(existingOrder);
+}
+
 }
